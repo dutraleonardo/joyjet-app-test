@@ -33,13 +33,13 @@ pip install -r requirements.txt
 python run.py
 ```
 
-~~### MongoDB
+### MongoDB
 * Make sure you have mongoDB installed and running
-~~* Set enviroment variable: ``` export MONGO_URI=mongodb://yourmongodb:27017/dbname ```
-* Create a collection named cart_checkout~~
+* Set enviroment variable: ``` export MONGO_URI=mongodb://yourmongodb:27017/dbname ```
+* Create a collection named cart_checkout
 
 ### How to test?
 * Send a POST request to API endpoint ``` /cart_checkout ```
 * Put the json on body request
 * Check response
-* Check mongodb collection
+~~* Check mongodb collection~~
