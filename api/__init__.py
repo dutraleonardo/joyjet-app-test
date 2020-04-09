@@ -1,11 +1,9 @@
-import os
 import datetime
 import json
 import logging
 from flask import Flask
 from flask import request
 from flask import jsonify
-from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from api.controllers.default import calculate_total, delivery_price
 
@@ -37,11 +35,6 @@ def get_fees(fees):
 
 def create_app(config=None):
     app = Flask(__name__)
-    try:
-        app.config['MONGO_URI'] = os.environ.get("MONGO_URI")
-        mongo = PyMongo(app)
-    except EnvironmentError as error:
-        print("Error: {0}".format(error))
 
     app.json_encoder = JSONEncoder
     if config == 'TEST':
@@ -109,15 +102,6 @@ def create_app(config=None):
         logging.info(
             "Finish calculation, result: {0}".format(json.dumps(cart_total))
             )
-
-        checkout_id = mongo.db.cart_checkout.insert_one(
-            {"carts": cart_total}
-            ).inserted_id
-
-        if checkout_id:
-            logging.info(
-                "Data inserted successfully, ID: {0}".format(checkout_id)
-                )
 
         return jsonify({"carts": cart_total}), 200
 
