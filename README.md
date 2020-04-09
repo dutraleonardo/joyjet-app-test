@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/dutraleonardo/joyjet-app-test.svg?branch=master)](https://travis-ci.com/dutraleonardo/joyjet-app-test)
 
 # Joyjet Tech Interview
 
